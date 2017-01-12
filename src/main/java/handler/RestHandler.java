@@ -24,7 +24,7 @@ public class RestHandler implements HttpHandler {
     public static final String PARAMETER_NAME = "x";
     public static final String ENGINE_NAME = "JavaScript";
     public static final String BAD_REQUEST_ERROR = "Server responded with Error 400 (Bad Request). Failed to perform calculation. " +
-            "Please, use the following equation pattern: operation ?x1=value&x2=value. Example: x1+x2?x1=2&x2=3.";
+            "Please, use the following operation pattern: operation?x1=value&x2=value. Example: x1+x2?x1=2&x2=3.";
     public static final int RESPONSE_CODE_OK = 200;
     public static final int RESPONSE_CODE_ERROR = 400;
     public static final int CONTENT_LENGTH = 0;
