@@ -13,7 +13,7 @@ public class ParamsUtilsService {
      * This method helps to split parameters from URI
      */
     public static String[] splitParametersString(String parametersString) {
-        if (parametersString == null || parametersString.isEmpty()) {
+        if (validate(parametersString)) {
             return new String[0];
         }
         return parametersString.split("&");
@@ -23,7 +23,7 @@ public class ParamsUtilsService {
      * This method helps to get a value from parameterAndValue String plus it checks that parameter was named correctly - x
      */
     public static float getParamValue(String parameter) throws Exception {
-        if (parameter == null || parameter.isEmpty() || !parameter.contains("=")) {
+        if (validate(parameter) || !parameter.contains("=")) {
             throw new NameNotFoundException();
         }
 
@@ -33,5 +33,9 @@ public class ParamsUtilsService {
         } else {
             throw new NameNotFoundException();
         }
+    }
+
+    private static boolean validate(String string) {
+        return string == null || string.isEmpty();
     }
 }
