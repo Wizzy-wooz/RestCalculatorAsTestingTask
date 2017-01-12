@@ -25,7 +25,7 @@ Implementation:
 5. Simple arithmetic calculations like add (+), substract(-), multiply(*) and divide(/) are supported.
 6. All variables(parameters) MUST BE NAMED with x. Like: x1, x2, x3...There is no limitation on parameters number. But please do not forget to specify all of them in your operation.
 7. It does matter if you use . or , for separation of integral and fractional parts.
-8. Result will return float number, but be aware that some inaccuracies can happend due to nature of float type. If you mix alphabetic letters with numbers - letters will be removed.
+8. Result will return float number, but be aware that some inaccuracies can happen due to nature of float type. If you mix alphabetic letters with numbers - letters will be removed.
 9. If operation requires 3 parameters there MUST BE three parameters.
 10. Not a number and Infinity can be obtained as result.
 11. Empty value for parameter will be processed as error and your operation won't give any result.
