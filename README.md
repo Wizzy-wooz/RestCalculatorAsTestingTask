@@ -18,6 +18,8 @@ For example, if the inputs are `X1` and `X2`, the calculation could be `X1 + 5*X
 
 Implementation:
 
+Important: no MAVEN nor Spring were used.
+
 1. Clone/download sources. 
 2. Start main method in Application.java - it launches local HttpServer on http://localhost:8081.
 3. PORT_NUMBER = 8081 can be changed in Application.java.
