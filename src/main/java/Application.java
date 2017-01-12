@@ -9,6 +9,7 @@ import java.util.logging.Logger;
 
 /**
  * Created by elena on 1/12/17.
+ * Ignore WARNING: ReferenceError: "favicon" is not defined
  */
 public class Application {
 
