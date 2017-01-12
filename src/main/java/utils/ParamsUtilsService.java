@@ -9,6 +9,8 @@ import javax.naming.NameNotFoundException;
  */
 public class ParamsUtilsService {
 
+    private static final String REGEX_TO_REMOVE_ALL_LETTERS_AND_SPECIAL_CHARACTERS_EXCEPT_POINT = "[^\\d.]";
+
     /**
      * This method helps to split parameters from URI
      */
@@ -29,7 +31,7 @@ public class ParamsUtilsService {
 
         String[] pair = parameter.split("=");
         if (pair[0].toLowerCase().contains(RestHandler.PARAMETER_NAME)) {
-            return Float.parseFloat(pair[1].replace(",", ".").replaceAll("[^\\d.]", ""));
+            return Float.parseFloat(pair[1].replaceAll(",", ".").replaceAll(REGEX_TO_REMOVE_ALL_LETTERS_AND_SPECIAL_CHARACTERS_EXCEPT_POINT, ""));
         } else {
             throw new NameNotFoundException();
         }
