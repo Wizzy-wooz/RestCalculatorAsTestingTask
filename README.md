@@ -18,7 +18,7 @@ For example, if the inputs are `X1` and `X2`, the calculation could be `X1 + 5*X
 
 Implementation:
 
-Important: no MAVEN nor Spring were used.
+Important: not MAVEN nor Spring were used.
 
 1. Clone/download sources. Add junit jar to classpath.
 2. Start main method in Application.java - it launches local HttpServer on http://localhost:8081.
