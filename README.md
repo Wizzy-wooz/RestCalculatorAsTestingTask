@@ -20,7 +20,7 @@ Implementation:
 
 Important: no MAVEN nor Spring were used.
 
-1. Clone/download sources. 
+1. Clone/download sources. Add junit jar to classpath.
 2. Start main method in Application.java - it launches local HttpServer on http://localhost:8081.
 3. PORT_NUMBER = 8081 can be changed in Application.java.
 4. To perform calculation: specify your operation + specify your parameters. Example: http://localhost:8081/x1+x2?x1=10&x2=4
