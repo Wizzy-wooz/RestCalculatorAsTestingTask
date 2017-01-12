@@ -1,4 +1,4 @@
-# RestCalculatorAsTestingTask
+# RestCalculator
 
 Create the web application in Java which meets the following criteria:
 
