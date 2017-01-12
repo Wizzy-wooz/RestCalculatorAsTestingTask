@@ -23,9 +23,10 @@ public class RestHandler implements HttpHandler {
     public static final String URL_SEPARATOR = "/";
     public static final String PARAMETER_NAME = "x";
     public static final String ENGINE_NAME = "JavaScript";
-    public static final String SHOW_WARNING_ON_PAGE = "Failed to perform calculation. " +
-            "Please, use the following equation pattern: equation?x1=value&x2=value. Example: x1+x2?x1=2&x2=3.";
+    public static final String BAD_REQUEST_ERROR = "Server responded with Error 400 (Bad Request). Failed to perform calculation. " +
+            "Please, use the following equation pattern: operation ?x1=value&x2=value. Example: x1+x2?x1=2&x2=3.";
     public static final int RESPONSE_CODE_OK = 200;
+    public static final int RESPONSE_CODE_ERROR = 400;
     public static final int CONTENT_LENGTH = 0;
 
     private static Logger logger = Logger.getLogger(RestHandler.class.getName());
@@ -46,7 +47,7 @@ public class RestHandler implements HttpHandler {
             }
             result = String.valueOf(engine.eval(equation, new SimpleBindings(vars)));
         } catch (Exception e) {
-            result = SHOW_WARNING_ON_PAGE;
+            result = BAD_REQUEST_ERROR;
             logger.warning(e.getCause().getMessage());
         }
 
@@ -54,8 +55,17 @@ public class RestHandler implements HttpHandler {
     }
 
     private void sendResponse(HttpExchange httpExchange, String result) {
+        if(result.contains(BAD_REQUEST_ERROR)){
+            prepareResponse(httpExchange, result, RESPONSE_CODE_ERROR);
+        }
+        else {
+            prepareResponse(httpExchange, result, RESPONSE_CODE_OK);
+        }
+    }
+
+    private void prepareResponse(HttpExchange httpExchange, String result, int code) {
         try {
-            httpExchange.sendResponseHeaders(RESPONSE_CODE_OK, CONTENT_LENGTH);
+            httpExchange.sendResponseHeaders(code, CONTENT_LENGTH);
             try (BufferedOutputStream out = new BufferedOutputStream(httpExchange.getResponseBody())) {
                 out.write(result.getBytes());
                 out.flush();
